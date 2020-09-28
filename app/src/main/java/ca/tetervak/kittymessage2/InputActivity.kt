@@ -39,9 +39,10 @@ class InputActivity : AppCompatActivity() {
             else -> getString(R.string.undefined)
         }
         // return back with the message data
-        val intent = Intent()
-        intent.putExtra(IS_URGENT_KEY, urgent)
-        intent.putExtra(MESSAGE_TEXT_KEY, message)
+        val intent = Intent().apply{
+            putExtra(IS_URGENT_KEY, urgent)
+            putExtra(MESSAGE_TEXT_KEY, message)
+        }
         setResult(RESULT_OK, intent)
         finish()
     }
